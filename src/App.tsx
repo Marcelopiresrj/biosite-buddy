@@ -78,7 +78,7 @@ function App() {
           <ProfileHeader 
             name="Hi-Tech Eletrônicos"
             username="hitecheletronicos"
-            bio="Sua referência em tecnologia e smartphones premium 🚀"
+            bio="Sua referência em tecnologia e smartphones premium 🚀✨"
             avatarUrl="/logo.png"
           />
 
