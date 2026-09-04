@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cyan-neon: #00F2FE;
+  --color-purple-neon: #FF0080;
+  --color-green-neon: #00FF87;
+  --color-bg-dark: #09090b;
+  --color-bg-panel: #18181b;
+}
+
+body {
+  background-color: var(--color-bg-dark);
+  color: white;
+  min-height: 100vh;
+}
