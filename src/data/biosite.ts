@@ -2,6 +2,12 @@ import tela from "@/assets/tela.jpg";
 import placa from "@/assets/placa.jpg";
 import tv from "@/assets/tv.jpg";
 import bateria from "@/assets/bateria.jpg";
+import ig1 from "@/assets/ig-1.jpg";
+import ig2 from "@/assets/ig-2.jpg";
+import ig3 from "@/assets/ig-3.jpg";
+import ig4 from "@/assets/ig-4.jpg";
+import ig5 from "@/assets/ig-5.jpg";
+import ig6 from "@/assets/ig-6.jpg";
 
 export const BUSINESS = {
   name: "Hi-Tech Eletrônicos",
@@ -63,4 +69,21 @@ export const GALLERY: GalleryItem[] = [
   { id: "placa", image: placa, title: "Reparo de placa", caption: "Componente a componente", tone: "violet" },
   { id: "tv", image: tv, title: "TV & multimídia", caption: "Imagem e som", tone: "green" },
   { id: "bateria", image: bateria, title: "Troca de bateria", caption: "Mais carga, menos espera", tone: "cyan" },
+];
+
+export type InstagramPost = {
+  id: string;
+  image: string;
+  caption: string;
+};
+
+export const INSTAGRAM_URL = "https://www.instagram.com/hitecheletronicos/";
+
+export const INSTAGRAM: InstagramPost[] = [
+  { id: "ig1", image: ig1, caption: "Microreparo em placa" },
+  { id: "ig2", image: ig2, caption: "Loja e acessórios" },
+  { id: "ig3", image: ig3, caption: "Notebook na bancada" },
+  { id: "ig4", image: ig4, caption: "Cliente feliz" },
+  { id: "ig5", image: ig5, caption: "TV com backlight nova" },
+  { id: "ig6", image: ig6, caption: "Solda no microscópio" },
 ];
