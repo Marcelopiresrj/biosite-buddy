@@ -20,21 +20,21 @@ export function LinkCard({ href, title, subtitle, icon, type, delay = 0 }: LinkC
   let subColor = "";
 
   if (type === "whatsapp") {
-    gradientWrapper = "from-green-neon to-cyan-neon";
-    iconBg = "bg-green-neon text-black";
-    glowShadow = "shadow-[0_0_20px_rgba(0,255,135,0.3)] hover:shadow-[0_0_35px_rgba(0,255,135,0.6)]";
+    gradientWrapper = "from-[#25d366] to-[#128c7e]";
+    iconBg = "bg-transparent";
+    glowShadow = "shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:shadow-[0_0_35px_rgba(37,211,102,0.6)]";
     titleColor = "text-white";
     subColor = "text-gray-300";
   } else if (type === "instagram") {
-    gradientWrapper = "from-purple-neon via-pink-500 to-cyan-neon";
-    iconBg = "bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 text-white";
-    glowShadow = "shadow-[0_0_20px_rgba(255,0,128,0.3)] hover:shadow-[0_0_35px_rgba(255,0,128,0.6)]";
+    gradientWrapper = "from-[#f09433] via-[#dc2743] to-[#bc1888]";
+    iconBg = "bg-transparent";
+    glowShadow = "shadow-[0_0_20px_rgba(220,39,67,0.3)] hover:shadow-[0_0_35px_rgba(220,39,67,0.6)]";
     titleColor = "text-white";
     subColor = "text-gray-300";
   } else if (type === "google") {
-    gradientWrapper = "from-blue-500 to-cyan-neon";
-    iconBg = "bg-white text-blue-600 p-1";
-    glowShadow = "shadow-[0_0_20px_rgba(0,242,254,0.3)] hover:shadow-[0_0_35px_rgba(0,242,254,0.6)]";
+    gradientWrapper = "from-[#4285F4] via-[#EA4335] to-[#FBBC05]";
+    iconBg = "bg-transparent";
+    glowShadow = "shadow-[0_0_20px_rgba(66,133,244,0.3)] hover:shadow-[0_0_35px_rgba(66,133,244,0.6)]";
     titleColor = "text-white";
     subColor = "text-gray-300";
   }

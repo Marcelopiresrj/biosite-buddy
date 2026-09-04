@@ -32,7 +32,7 @@ export function BackgroundGrid() {
         return (
           <div 
             key={index} 
-            className={`absolute inset-0 transition-all duration-[2000ms] ease-in-out ${isActive ? 'opacity-80 scale-105 z-0' : 'opacity-0 scale-100 -z-10'}`}
+            className={`absolute inset-0 transition-all duration-[2000ms] ease-in-out ${isActive ? 'opacity-50 scale-105 z-0' : 'opacity-0 scale-100 -z-10'}`}
           >
             {media.type === 'video' ? (
               <video 
@@ -41,13 +41,13 @@ export function BackgroundGrid() {
                 loop 
                 muted 
                 playsInline 
-                className="w-full h-full object-cover filter grayscale-[10%]"
+                className="w-full h-full object-cover filter grayscale-[30%] blur-[2px]"
               />
             ) : (
               <img 
                 src={media.url} 
                 alt="Console Background" 
-                className="w-full h-full object-cover filter grayscale-[10%]"
+                className="w-full h-full object-cover filter grayscale-[30%] blur-[2px]"
                 draggable="false"
               />
             )}
@@ -55,9 +55,23 @@ export function BackgroundGrid() {
         );
       })}
 
-      {/* 2. Camadas de Escurecimento por Cima das Imagens */}
-      {/* Gradiente sutil para manter a leitura do texto */}
-      <div className="absolute inset-0 z-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-[#05080f]/20 to-[#05080f]/60 pointer-events-none"></div>
+      {/* 2. Hi-Tech Animated Grid Pattern */}
+      <div 
+        className="absolute inset-0 z-10 pointer-events-none opacity-40"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(0, 242, 254, 0.1) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(0, 242, 254, 0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px',
+          maskImage: 'linear-gradient(to bottom, transparent, black, transparent)',
+          WebkitMaskImage: 'linear-gradient(to bottom, transparent, black, transparent)',
+        }}
+      ></div>
+
+      {/* 3. Camadas de Escurecimento por Cima das Imagens */}
+      {/* Gradiente sutil para manter a leitura do texto com bordas mais escuras */}
+      <div className="absolute inset-0 z-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#05080f]/40 via-[#05080f]/70 to-[#05080f] pointer-events-none"></div>
       
     </div>
   );
