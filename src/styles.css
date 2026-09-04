@@ -53,6 +53,7 @@
   --color-neon-green: var(--neon-green);
   --color-neon-green-deep: var(--neon-green-deep);
   --color-neon-green-ink: var(--neon-green-ink);
+  --color-neon-green-fg: var(--neon-green-fg);
   --color-neon-green-surface: var(--neon-green-surface);
   --color-neon-green-muted: var(--neon-green-muted);
   --color-neon-violet: var(--neon-violet);
@@ -108,6 +109,7 @@
   --neon-green: oklch(0.827 0.194 155);
   --neon-green-deep: oklch(0.63 0.152 158);
   --neon-green-ink: oklch(0.2 0.05 165);
+  --neon-green-fg: oklch(0.96 0.03 160);
   --neon-green-surface: oklch(0.267 0.06 140);
   --neon-green-muted: oklch(0.702 0.05 155);
 

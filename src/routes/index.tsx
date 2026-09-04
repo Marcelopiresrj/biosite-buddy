@@ -26,7 +26,7 @@ const linkTone: Record<BioLink["tone"], { card: string; badge: string; title: st
   green: {
     card: "bg-neon-green-surface ring-1 ring-neon-green/40",
     badge: "bg-gradient-to-br from-neon-green to-neon-green-deep text-neon-green-ink",
-    title: "text-neon-green-ink",
+    title: "text-neon-green-fg",
     sub: "text-neon-green-muted",
     chev: "text-neon-green",
   },
@@ -55,7 +55,7 @@ const galleryTone: Record<GalleryItem["tone"], { card: string; title: string; ca
   },
   green: {
     card: "bg-neon-green-surface ring-1 ring-neon-green/30",
-    title: "text-neon-green-ink",
+    title: "text-neon-green-fg",
     caption: "text-neon-green-muted",
   },
   cyan: {
