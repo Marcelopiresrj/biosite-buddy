@@ -15,15 +15,15 @@ export function ProfileHeader({ name, username, bio, avatarUrl }: ProfileHeaderP
       transition={{ duration: 0.5 }}
       className="flex flex-col items-center text-center space-y-3 pt-0 pb-2 w-full mt-[-60px]"
     >
-      {/* Avatar with Neon Gradient Border */}
-      <div className="relative group">
-        <div className="absolute -inset-1.5 rounded-full bg-gradient-to-tr from-cyan-neon to-purple-neon opacity-80 blur-[8px] group-hover:opacity-100 transition-opacity duration-500"></div>
-        <div className="relative rounded-full p-[4px] bg-gradient-to-tr from-cyan-neon to-purple-neon">
-          <div className="h-28 w-28 rounded-full bg-bg-dark flex items-center justify-center overflow-hidden border-2 border-transparent">
+      {/* Logo with Neon Gradient Border */}
+      <div className="relative group flex justify-center w-full max-w-[280px] mx-auto">
+        <div className="absolute -inset-1.5 rounded-xl bg-gradient-to-tr from-cyan-neon to-purple-neon opacity-80 blur-[8px] group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div className="relative rounded-xl p-[4px] bg-gradient-to-tr from-cyan-neon to-purple-neon w-full">
+          <div className="h-24 sm:h-28 w-full rounded-xl bg-bg-dark flex items-center justify-center overflow-hidden border-2 border-transparent p-3">
             {avatarUrl ? (
-              <img src={avatarUrl} alt={name} className="h-full w-full rounded-full object-contain p-2 bg-black/60" />
+              <img src={avatarUrl} alt={name} className="h-full w-full object-contain drop-shadow-md" />
             ) : (
-              <div className="h-full w-full rounded-full bg-slate-800 flex items-center justify-center text-3xl font-bold text-white">
+              <div className="h-full w-full rounded-lg bg-slate-800 flex items-center justify-center text-3xl font-bold text-white">
                 HT
               </div>
             )}
