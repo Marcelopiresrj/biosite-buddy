@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
 import logo from "@/assets/logo.png";
-import { BUSINESS, LINKS, GALLERY, type BioLink, type GalleryItem } from "@/data/biosite";
+import { BUSINESS, LINKS, GALLERY, INSTAGRAM, INSTAGRAM_URL, type BioLink, type GalleryItem } from "@/data/biosite";
 
 const SITE_DESC =
   "Assistência técnica em Rio das Ostras: conserto de celulares, notebooks e TVs. Orçamento rápido pelo WhatsApp.";
@@ -78,6 +78,58 @@ const contactSchema = z.object({
 
 const inputClass =
   "w-full rounded-xl bg-surface-3 ring-1 ring-hairline px-4 py-3 text-sm text-foreground placeholder:text-faint outline-none focus:ring-primary";
+
+
+function Carousel({
+  title,
+  action,
+  children,
+}: {
+  title: string;
+  action?: React.ReactNode;
+  children: React.ReactNode;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  function scrollBy(dir: 1 | -1) {
+    const el = ref.current;
+    if (!el) return;
+    el.scrollBy({ left: dir * Math.round(el.clientWidth * 0.8), behavior: "smooth" });
+  }
+
+  return (
+    <section className="mt-9">
+      <div className="flex items-center justify-between gap-3">
+        <h2 className="font-display font-bold text-xs uppercase tracking-[0.25em] text-muted-foreground">{title}</h2>
+        <div className="flex items-center gap-2">
+          {action}
+          <button
+            type="button"
+            aria-label="Voltar"
+            onClick={() => scrollBy(-1)}
+            className="size-7 rounded-full bg-surface-2 ring-1 ring-hairline grid place-items-center text-sm text-muted-foreground hover:text-foreground"
+          >
+            ‹
+          </button>
+          <button
+            type="button"
+            aria-label="Avançar"
+            onClick={() => scrollBy(1)}
+            className="size-7 rounded-full bg-surface-2 ring-1 ring-hairline grid place-items-center text-sm text-muted-foreground hover:text-foreground"
+          >
+            ›
+          </button>
+        </div>
+      </div>
+      <div
+        ref={ref}
+        className="mt-4 -mx-5 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth px-5 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {children}
+      </div>
+    </section>
+  );
+}
 
 function Biosite() {
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -175,30 +227,64 @@ function Biosite() {
           })}
         </section>
 
-        <section className="mt-9">
-          <h2 className="font-display font-bold text-xs uppercase tracking-[0.25em] text-muted-foreground">
-            Serviços &amp; trabalhos
-          </h2>
-          <div className="mt-4 grid grid-cols-2 gap-3">
-            {GALLERY.map((item) => {
-              const tone = galleryTone[item.tone];
-              return (
-                <div key={item.id} className={`rounded-2xl p-3 ${tone.card}`}>
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    loading="lazy"
-                    width={768}
-                    height={768}
-                    className="aspect-square w-full rounded-xl object-cover"
-                  />
-                  <p className={`mt-2.5 text-sm font-semibold ${tone.title}`}>{item.title}</p>
-                  <p className={`text-xs ${tone.caption}`}>{item.caption}</p>
-                </div>
-              );
-            })}
-          </div>
-        </section>
+        <Carousel title="Serviços & trabalhos">
+          {GALLERY.map((item) => {
+            const tone = galleryTone[item.tone];
+            return (
+              <article
+                key={item.id}
+                className={`w-[62%] shrink-0 snap-start rounded-2xl p-3 sm:w-[45%] ${tone.card}`}
+              >
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  loading="lazy"
+                  width={768}
+                  height={768}
+                  className="aspect-square w-full rounded-xl object-cover"
+                />
+                <p className={`mt-2.5 text-sm font-semibold ${tone.title}`}>{item.title}</p>
+                <p className={`text-xs ${tone.caption}`}>{item.caption}</p>
+              </article>
+            );
+          })}
+        </Carousel>
+
+        <Carousel
+          title="No Instagram"
+          action={
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[10px] uppercase tracking-[0.18em] text-neon-violet-ink hover:underline"
+            >
+              @hitecheletronicos
+            </a>
+          }
+        >
+          {INSTAGRAM.map((post) => (
+            <a
+              key={post.id}
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative w-[52%] shrink-0 snap-start overflow-hidden rounded-2xl ring-1 ring-neon-violet/30 sm:w-[38%]"
+            >
+              <img
+                src={post.image}
+                alt={post.caption}
+                loading="lazy"
+                width={768}
+                height={768}
+                className="aspect-square w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/95 to-transparent p-2.5 pt-8 text-[11px] font-medium text-foreground">
+                {post.caption}
+              </span>
+            </a>
+          ))}
+        </Carousel>
 
         <section className="mt-9 rounded-3xl bg-surface ring-1 ring-hairline p-5">
           <h2 className="font-display font-bold text-sm text-foreground">Peça um orçamento</h2>
