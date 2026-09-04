@@ -206,11 +206,11 @@ function Biosite() {
           <form className="mt-4 space-y-3" onSubmit={handleSubmit} noValidate>
             <div>
               <input name="nome" type="text" placeholder="Seu nome" maxLength={80} className={inputClass} />
-              {errors.nome && <p className="mt-1 text-xs text-destructive">{errors.nome}</p>}
+              {errors['nome'] && <p className="mt-1 text-xs text-destructive">{errors['nome']}</p>}
             </div>
             <div>
               <input name="telefone" type="tel" placeholder="Seu WhatsApp" maxLength={20} className={inputClass} />
-              {errors.telefone && <p className="mt-1 text-xs text-destructive">{errors.telefone}</p>}
+              {errors['telefone'] && <p className="mt-1 text-xs text-destructive">{errors['telefone']}</p>}
             </div>
             <div>
               <textarea
@@ -220,7 +220,7 @@ function Biosite() {
                 placeholder="Descreva o aparelho e o defeito"
                 className={`${inputClass} resize-none`}
               />
-              {errors.mensagem && <p className="mt-1 text-xs text-destructive">{errors.mensagem}</p>}
+              {errors['mensagem'] && <p className="mt-1 text-xs text-destructive">{errors['mensagem']}</p>}
             </div>
             <button
               type="submit"
