@@ -1,4 +1,4 @@
-import { MessageCircle, Star, Music, Music2 } from "lucide-react";
+import { Music, Music2 } from "lucide-react";
 import { ProfileHeader } from "./components/ProfileHeader";
 import { SocialGallery } from "./components/SocialGallery";
 import { LinkCard } from "./components/LinkCard";
